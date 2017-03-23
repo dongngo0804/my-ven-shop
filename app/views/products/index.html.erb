@@ -1,0 +1,10 @@
+<h1>Products from the Amazon API</h1>
+<% if @products.any? %>
+  <% @products.each do |product| %>
+    <div class="product">
+      <%= image_tag(product.image_url) %>
+      <%= link_to product.title, product %>
+      <%= product.description%>
+       </div>
+  <% end %>
+<% end %> 

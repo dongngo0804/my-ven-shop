@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+  	<h4><%=link_to @product.title, @product %></h4>
+    <div class="col-md-4 ">
+      <%= image_tag @product.image_url %>
+    </div>
+    
+    <div class="col-md-4">
+      <p> Item ID: <%= @product.id %> </p> 	
+      <p> Item Description: <%= @product.description%></p>
+    </div>
+  </div>
+
+ 
+</div>
+

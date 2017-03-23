@@ -1,0 +1,35 @@
+ <header class = "navbar navbar-static-top nav-pills">
+  	  <div class = "container">
+        <%=link_to "VENSHOP", root_path, id: "logo" %>
+
+        <nav>
+      	  <ul class = "nav navbar-nav navbar-right">
+      	    <li> 
+              <%=link_to('<span class="glyphicon glyphicon-home"></span> Home'.html_safe, root_path) %> 
+            </li>
+
+      	    <li>  
+              <%=link_to('<span class="glyphicon glyphicon-saved"></span> Sign up'.html_safe,  new_user_registration_path) %> 
+            </li>
+            <% if current_user %>
+            <li>  
+              <%=link_to('<span class="glyphicon glyphicon-log-out"></span> Log out'.html_safe, destroy_user_session_path, method: 'delete') %> 
+            </li>
+            <% else %>
+              <li>  
+              <%=link_to('<span class="glyphicon glyphicon-log-in"></span> Log in'.html_safe, new_user_session_path) %> 
+            </li>
+            <% end %>
+
+      	  </ul>
+        </nav>
+      </div>
+  </header>
+  <!--
+  <header class="cd-header">
+    <a href="#0" class="cd-logo"><img src="img/cd-logo.svg" alt="Logo"></a>
+    <a href="#0" class="cd-3d-nav-trigger">
+      Menu
+      <span></span>
+    </a>
+  </header> <!-- .cd-header -->
