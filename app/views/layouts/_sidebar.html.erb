@@ -1,0 +1,10 @@
+ <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li>Category</li>
+
+            <% Category.all.each do |cate| %>
+              <li><%= link_to cate.name, '#' %></li>
+            <% end %>
+          </ul>
+         
+</div>
