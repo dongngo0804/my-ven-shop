@@ -1,25 +1,25 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
-#Debugger
+# Debugger
 gem 'pry'
-#Environment variables
-gem "figaro"
+# Environment variables
+gem 'figaro'
 
-#Vacuum-retrieve amz products
+# Vacuum-retrieve amz products
 gem 'vacuum', '~> 1.4'
 
-#devise
+# devise
 gem 'devise'
 gem 'devise-bootstrap-views'
 
-#has_secure_password
+# has_secure_password
 gem 'bcrypt',         '3.1.11'
-#Bootstrap gem
+# Bootstrap gem
 gem 'bootstrap-sass', '3.3.6'
 gem 'bootstrap_form'
 
@@ -59,9 +59,10 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end

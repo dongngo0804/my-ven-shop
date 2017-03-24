@@ -6,8 +6,11 @@
     </div>
     
     <div class="col-md-4">
-      <p> Item ID: <%= @product.id %> </p> 	
-      <p> Item Description: <%= @product.description%></p>
+      <ul class="list-group">
+        <li class="list-group-item"> Item ID: <%= @product.id %> </li> 	
+        <li class="list-group-item"> Item Description: <%= @product.description%></li>
+        <li class="list-group-item"> Item Price: <%= number_to_currency(@product.price/100) unless @product.price == nil%> </li>
+      </ul>
     </div>
   </div>
 
