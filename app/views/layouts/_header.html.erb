@@ -8,14 +8,28 @@
               <%=link_to('<span class="glyphicon glyphicon-home"></span> Home'.html_safe, root_path) %> 
             </li>
 
-      	    <li>  
-              <%=link_to('<span class="glyphicon glyphicon-saved"></span> Sign up'.html_safe,  new_user_registration_path) %> 
+            <li>
+                <%=link_to('<span class="glyphicon glyphicon-shopping-cart"></span> My cart'.html_safe, carts_path) %>
             </li>
+
             <% if current_user %>
+
+      	    <li>  
+               <%=link_to('<span class="glyphicon glyphicon-user"></span> Profile'.html_safe, edit_user_registration_path) %>
+            </li>
+
+            <li>
+                <%=link_to('<span class="glyphicon glyphicon-list-alt"></span> My products'.html_safe, new_product_path) %>
+            </li>
+
             <li>  
               <%=link_to('<span class="glyphicon glyphicon-log-out"></span> Log out'.html_safe, destroy_user_session_path, method: 'delete') %> 
             </li>
+
             <% else %>
+              <li>            
+                <%=link_to('<span class="glyphicon glyphicon-saved"></span> Sign up'.html_safe,  new_user_registration_path) %> 
+              </li>            
               <li>  
               <%=link_to('<span class="glyphicon glyphicon-log-in"></span> Log in'.html_safe, new_user_session_path) %> 
             </li>

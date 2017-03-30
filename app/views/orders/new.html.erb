@@ -1,0 +1,25 @@
+<table class="table">
+	<thead>
+		<td>Title</td>
+		<td>Quantity</td>
+		<td>Total price</td>
+	
+	</thead>
+
+	<tbody>
+		<% line_items = @cart.line_items %>
+		<% if line_items.any? %>
+		  <% line_items.each do |line| %>
+		    	<td> <%= line.product.title %></td>
+		    	<td> <%= line.quantity %></td>
+		    	<td> <%= number_to_currency(line.product.price* line.quantity/100)  %> </td>'
+		    	
+		    <% end %>
+		<% end %>
+		<tr>
+		
+		</tr>
+	</tbody>
+
+
+</table>
