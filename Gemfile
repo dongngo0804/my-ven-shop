@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'sidekiq'
 # Debugger
 gem 'pry'
 # Environment variables
@@ -15,6 +18,7 @@ gem 'vacuum', '~> 1.4'
 
 # devise
 gem 'devise'
+gem 'devise-async'
 gem 'devise-bootstrap-views'
 
 # has_secure_password
@@ -68,4 +72,4 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i(mingw mswin x64_mingw jruby)

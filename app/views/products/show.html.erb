@@ -1,17 +1,22 @@
 <div class="container">
   <div class="row">
   	<h4><%=link_to @product.title, @product %></h4>
-    <div class="col-md-4 ">
-      <%= image_tag @product.image_url %>
+    <div class="col-md-5 ">
+      <%= image_tag @product.large_image_url %>
     </div>
     
-    <div class="col-md-4">
+    <div class="col-md-3">
       <ul class="list-group">
         <li class="list-group-item"> Item ID: <%= @product.id %> </li> 	
         <li class="list-group-item"> Item Description: <%= @product.description%></li>
         <li class="list-group-item"> Item Price: <%= number_to_currency(@product.price/100) unless @product.price == nil%> </li>
       </ul>
+
+       <div class="add_to_cart">
+          <%= button_to 'Add to cart', line_items_path(product_id: @product), class: 'btn btn-info' %>
+        </div>
     </div>
+
   </div>
 
  

@@ -4,7 +4,7 @@
     <% @recommended_products.each do |product| %>
       <div class="col-md-3">
         <div class="product">
-          <%= link_to image_tag(product.image_url), product %>    
+          <%= link_to image_tag(product.medium_image_url), product %>    
         </div>
        </div>
     <% end %>
@@ -17,7 +17,7 @@
     <% @newest_products.each do |product| %>
         <div class="product">
           <div class="col-md-3">
-          	<%= link_to image_tag(product.image_url), product %>  
+          	<%= link_to image_tag(product.medium_image_url), product %>
           </div>
           <div class="col-md-6">
           <%= link_to product.title, product %> 

@@ -8,10 +8,9 @@ namespace :amazon do
   end
 
   task create_category: :environment do
-	categories = ['Baby','Beauty','Books',
-				  'FashionWomen','FashionMen',
-				  'Toys']
-	::CategoryCreator.new(categories)
+    categories = %w(Baby Beauty Books
+                    FashionWomen FashionMen
+                    Toys)
+    ::CategoryCreator.new(categories)
   end
-
 end
