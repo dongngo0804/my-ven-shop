@@ -64,11 +64,5 @@ class OrdersController < ApplicationController
     end
   end
 
-  def logged_in?
-    unless current_user
-      flash[:notice] = 'Log in first'
-      redirect_to new_user_session_path
-    end
-   end
 
 end

@@ -3,6 +3,14 @@ class ProductsController < ApplicationController
   before_action :set_cart, only: :show
   before_action :logged_in?, only: :new
 
+
+  def search
+    @search = Product.search do
+      keywords(params[:q])
+    end
+    render 'result'
+  end
+
   def index
     @recommended_products = Product.order('sales').limit(8)
     @newest_products = Product.order('created_at').limit(10)

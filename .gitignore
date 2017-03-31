@@ -24,3 +24,5 @@
 /config/application.yml
 
 /public/uploads
+
+solr/data

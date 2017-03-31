@@ -2,16 +2,6 @@
 
 <% if @products.any? %>
     <% @products.each do |product| %>
-        <div class="product">
-          <div class="col-md-3">
-          	<%= link_to image_tag(product.medium_image_url), product %>  
-          </div>
-          <div class="col-md-6">
-          <%= link_to product.title, product %> 
-          </div>
-          <div class="col-md-3">
-          	<%= number_to_currency(product.price/100, separator: ",") unless product.price == nil %>
-          </div>
-          </div>
+       <%= render product %>
     <% end %>
   <% end %>
