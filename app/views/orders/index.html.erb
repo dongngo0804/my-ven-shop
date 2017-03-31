@@ -1,0 +1,26 @@
+<h1> All orders </h1>
+
+<table class="table table-bordered">
+	<thead>
+		<td>Order ID</td>
+		<td>Product</td>
+		<td>Quantity</td>
+		<td>Total price</td>
+		<td>Shipping status</td>
+		<% if current_user.admin? %>
+		<td></td>
+		<td></td>
+		<% end %>
+	</thead>
+
+	<tbody>
+
+		<% if @orders.any? %>
+		  <% @orders.each do |order| %>
+		  	<%= render order %>
+		  <% end %>
+		<% end %>
+		
+	</tbody>
+
+</table>

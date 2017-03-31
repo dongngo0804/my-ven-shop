@@ -2,6 +2,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :store_current_location, unless: :devise_controller?
 
+
+  def logged_in?
+    unless current_user
+      flash[:notice] = 'Log in first'
+      redirect_to new_user_session_path
+    end
+   end
+
   private
 
   # override the devise helper to store the current location so we can
@@ -19,8 +27,4 @@ class ApplicationController < ActionController::Base
     request.referrer || root_path
   end
   
-  def after_sign_in_path_for(resource)
-    request.referrer || root_path
-  end
-
 end

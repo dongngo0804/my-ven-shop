@@ -1,11 +1,13 @@
 class LineItemsController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:create]
+  before_action :check_availability_of_product, only: :create
+
+  def new
+  end
 
   def create
-    product = Product.find(params[:product_id])
-    @line_item = @cart.add_product(product)
-
+    @line_item = @cart.add_product(@product, @quantity)
     if @line_item.save
       flash[:notice] = 'Product successful added to cart'
       redirect_to :back
@@ -24,4 +26,16 @@ class LineItemsController < ApplicationController
     flash[:success] = 'Deleted'
     redirect_to :back
   end
+
+  private
+
+    def check_availability_of_product 
+      @product = Product.find(params[:line_item][:product_id])
+      @quantity = params[:line_item][:quantity].gsub(/\D/, '').to_i
+      unless @product.stock >= @quantity
+        flash[:danger] = "Please order only what is available"
+        redirect_to :back
+      end
+    end
+
 end
