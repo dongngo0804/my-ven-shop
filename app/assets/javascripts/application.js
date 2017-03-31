@@ -15,3 +15,4 @@
 //= require toastr_rails
 //= require turbolinks
 //= require_tree .
+//= require social-share-button
