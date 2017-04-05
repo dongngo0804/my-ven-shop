@@ -21,6 +21,7 @@ class Order < ApplicationRecord
   	line_items = self.line_items
   	line_items.each do |line|
   		line.product.update_attribute(:stock, line.product.stock - line.quantity)
+      line.product.update_attribute(:sales, line.product.sales + line.quantity)
   	end
   end
 
@@ -29,8 +30,7 @@ class Order < ApplicationRecord
   	line_items.each do |line|
   		unless line.product.stock >= line.quantity
   			self.errors.add(:quantity, "Out of stock")
-  			#binding.pry
-  		end
+      end
   	end
   end
 end

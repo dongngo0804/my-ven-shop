@@ -5,6 +5,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'mysql2'
+gem 'kaminari'
+gem 'materialize-sass'
+gem 'sunspot_rails'
+gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
+gem 'social-share-button'
+gem 'meta-tags'
 gem 'cancan'
 gem 'toastr_rails'
 gem 'carrierwave'

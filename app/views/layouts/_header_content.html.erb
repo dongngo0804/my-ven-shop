@@ -1,0 +1,44 @@
+
+            <li> 
+              <%=link_to('<i class="material-icons left">home</i>Home'.html_safe, root_path) %> 
+            </li>
+
+            <li>
+                <%=link_to('<i class="material-icons left">shopping_cart</i> My cart'.html_safe, carts_path) %>
+            </li>
+
+            <% if current_user %>
+
+      	    <li>  
+               <%=link_to('<i class="material-icons left">account_circle</i>Profile'.html_safe, edit_user_registration_path) %>
+            </li>
+
+            <li>
+                <%=link_to('<i class="material-icons left">store</i>My products'.html_safe, new_product_path) %>
+            </li>
+
+            <% if current_user.admin? %>
+              <li>
+                  <%=link_to('<i class="material-icons left">reorder</i>Manage orders'.html_safe, orders_path) %>
+              </li>
+            <% else %>
+              <li>
+                  <%=link_to('<i class="material-icons left">reorder</i> Orders status'.html_safe, orders_path) %>
+              </li>
+            <% end %>
+
+            <li>  
+              <%=link_to('<i class="material-icons left">exit_to_app
+</i> Log out'.html_safe, destroy_user_session_path, method: 'delete') %> 
+            </li>
+
+            <% else %>
+              <li>            
+                <%=link_to('<i class="material-icons left">check_circle</i> Sign up'.html_safe,  new_user_registration_path) %> 
+              </li>            
+              <li>  
+              <%=link_to('<i class="material-icons left">person</i> Log in'.html_safe, new_user_session_path) %> 
+            </li>
+
+
+            <% end %>

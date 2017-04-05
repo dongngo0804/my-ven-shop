@@ -26,7 +26,9 @@
      <% if can? :update, order %>
        <td rowspan="<%=rowspan_val%>" class="vertical-center">
          <%= form_for order do |f| %>
-           <%= f.select :status, options_for_select(Order.statuses.keys, order.status),{}, { :class => 'form-control'} %>
+           <div class="input-field">
+           <%= f.select :status, options_for_select(Order.statuses.keys, order.status) %>
+           </div>
        </td>  
        <td rowspan="<%=rowspan_val%>" class="vertical-center">
           <%= f.submit "Update", class: "btn btn-success" %>

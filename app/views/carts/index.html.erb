@@ -1,6 +1,6 @@
 <h1> Your Cart </h1>
-
-<table class="table table-bordered">
+<%= render 'shared/error_messages', errors: @order && @order.errors %>
+<table class="bordered">
 	<thead>
 		<td>Product</td>
 		<td>Title</td>

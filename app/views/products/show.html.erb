@@ -1,36 +1,35 @@
-<div class="container">
-  <div class="row">
+
   	<h4><%=link_to @product.title, @product %></h4>
-    <div class="col-md-6 ">
-      <%= image_tag @product.large_image_url %>
+    <div class="col s6 ">
+      <%= image_tag @product.large_image_url, class: 'materialboxed product_img' %>
     </div>
     
-    <div class="col-md-3">
+    <div class="col s4">
     
-      <ul class="list-group">
-        <li class="list-group-item"> Item ID: <%= @product.id %> </li> 	
-        <li class="list-group-item"> Item Description: <%= @product.description%></li>
-        <li class="list-group-item"> Item Price: <%= number_to_currency(@product.price/100) unless @product.price == nil%> </li>
-        <li class="list-group-item"> In Stock: <%= @product.stock%> </li>
-        <li class= "list-group-item">
+      <ul class="collection">
+        <li class="collection-item"> Item ID: <%= @product.id %> </li> 	
+        <li class="collection-item"> Item Description: <%= @product.description%></li>
+        <li class="collection-item"> Item Price: <%= number_to_currency(@product.price/100) unless @product.price == nil%> </li>
+        <li class="collection-item"> In Stock: <%= @product.stock%> </li>
+        <li class= "collection-item">
 
        
         <%= form_for @line_item, :html => {:class => "form-inline"} do |f|%>
-          <div class="form-group">
+          <div class="input-field col s3">
             <%= f.text_field :quantity, min: "1" ,max: @product.stock ,step: "1" ,value: "1", class: "form-control", type: "number" %>  
           </div>
           <%= f.hidden_field :product_id, value: @product.id %>
 
-          <%= f.submit "Add to Cart", class: "btn btn-info" %>
-
+          <div class="input-field col s3">
+            <%= f.submit "Add to Cart", class: "btn btn-info" %>
+          </div>
         <% end %>
-
         </li>
       </ul>
+ 
+      <%= social_share_button_tag(@product.title) %>
+  
     </div>
 
-  </div>
-
- 
-</div>
+  
 

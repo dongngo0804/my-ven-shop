@@ -24,7 +24,8 @@ class OrdersController < ApplicationController
       CheckOutMailer.delay.check_out(current_user, @order)
       redirect_to root_path
     else
-      flash[:danger] = 'There was some errors'
+      @line_items = @cart.line_items
+      render 'carts/index'
     end
   end
 
@@ -64,11 +65,5 @@ class OrdersController < ApplicationController
     end
   end
 
-  def logged_in?
-    unless current_user
-      flash[:notice] = 'Log in first'
-      redirect_to new_user_session_path
-    end
-   end
 
 end

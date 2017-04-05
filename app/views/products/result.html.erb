@@ -1,0 +1,5 @@
+<h1> Results </h1>
+
+<% @search.each_hit_with_result do |hit, product| %>
+  <%= render product %>
+<% end %>

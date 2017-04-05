@@ -1,9 +1,11 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
 
-body {
-	padding-top: 10px;
-}
+@import "social-share-button";
+
+@import "materialize/components/color";
+$primary-color: color("blue", "lighten-2") !default;
+$secondary-color: color("blue", "base") !default;
+@import "materialize";
+
 
 section {
 	overflow: auto;   //Add scroll bar if content clipped
@@ -56,7 +58,7 @@ p {
 	float: left;
 	margin-right: 10px;
 	font-size: 1.7em;
-	color: #48799a;
+	color: #fff;
 	text-transform: uppercase;
 	letter-spacing: -1px;
 	padding-top: 9px;
@@ -71,6 +73,13 @@ p {
 /* Notification */
 
 .alert-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }
+
+.alert-danger {
     background-color: #f2dede;
     border-color: #eed3d7;
     color: #b94a48;
@@ -104,6 +113,7 @@ p {
 
  .product {
  	overflow: auto;
+ 	float: left;
  }
 
  #toast-container{
@@ -113,4 +123,50 @@ p {
 .vertical-center{
 	vertical-align: middle !important;
 
+}
+
+$size: 50px;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+  }
+  float: right;
+}
+
+table {
+border:none;
+border-collapse: collapse;
+}
+
+table td {
+border: 1px solid #919496;
+}
+
+select {
+	display: block !important;
+}
+
+.container{
+	margin-top: 20px;
+}
+
+.product_img{
+	width: 100%;
+	height: 100%;
+}
+
+#error_explaination{
+	background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+}
+
+nav .categories-wrapper {
+    background-color: #5090c4
+;
+    height: 54px;
 }

@@ -35,7 +35,10 @@ class ProductFetcher
         product['price'] = item['ItemAttributes']['ListPrice']['Amount'] unless item['ItemAttributes']['ListPrice'].nil?
         product['stock'] = 100
 
-        cate.products.create!(product)
+        product = cate.products.build(product)
+        if product.valid?
+          product.save
+        end
       end
     end
   end

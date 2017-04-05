@@ -1,7 +1,44 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :store_current_location, unless: :devise_controller?
+  before_action :prepare_meta_tags, if: "request.get?"
 
+
+  def prepare_meta_tags(options={})
+    site_name   = "VenShop"
+    title       = [controller_name].join(" ")
+    description = "Online shopping for everything"
+    image       = options[:image] || "favicon.ico"
+    current_url = request.url
+
+    # Let's prepare a nice set of defaults
+    defaults = {
+      site:        site_name,
+      title:       title,
+      image:       image,
+      description: description,
+      keywords:    %w[shopping products web online],
+      twitter: {
+        site_name: site_name,
+        site: '@venshop',
+        card: 'summary',
+        description: description,
+        image: image
+      },
+      og: {
+        url: current_url,
+        site_name: site_name,
+        title: title,
+        image: image,
+        description: description,
+        type: 'website'
+      }
+    }
+
+    options.reverse_merge!(defaults)
+
+    set_meta_tags options
+  end
 
   def logged_in?
     unless current_user

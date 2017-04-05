@@ -12,54 +12,52 @@
 
 ActiveRecord::Schema.define(version: 20170330060346) do
 
-  create_table "carts", force: :cascade do |t|
+  create_table "carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories", force: :cascade do |t|
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "line_items", force: :cascade do |t|
+  create_table "line_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "product_id"
     t.integer  "cart_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "quantity",   default: 0
     t.integer  "order_id"
-    t.index ["cart_id"], name: "index_line_items_on_cart_id"
-    t.index ["order_id"], name: "index_line_items_on_order_id"
-    t.index ["product_id"], name: "index_line_items_on_product_id"
+    t.index ["order_id"], name: "index_line_items_on_order_id", using: :btree
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.integer  "status",      default: 0
-    t.decimal  "total_price", default: "0.0"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+  create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "status",                     default: 0
+    t.decimal  "total_price", precision: 10, default: 0
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.integer  "user_id"
   end
 
-  create_table "products", force: :cascade do |t|
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
-    t.text     "description"
+    t.text     "description",        limit: 65535
     t.string   "original_image_url"
     t.string   "large_image_url"
     t.string   "medium_image_url"
     t.string   "small_image_url"
-    t.decimal  "price"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.decimal  "price",                            precision: 10
+    t.datetime "created_at",                                                  null: false
+    t.datetime "updated_at",                                                  null: false
     t.integer  "category_id"
-    t.integer  "sales"
+    t.integer  "sales",                                           default: 0
     t.integer  "user_id"
     t.integer  "stock"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
@@ -77,8 +75,9 @@ ActiveRecord::Schema.define(version: 20170330060346) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "line_items", "orders"
 end
