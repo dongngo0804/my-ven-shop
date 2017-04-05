@@ -9,10 +9,10 @@ class LineItemsController < ApplicationController
   def create
     @line_item = @cart.add_product(@product, @quantity)
     if @line_item.save
-      flash[:notice] = 'Product successful added to cart'
+      flash[:notice] = 'Product has been added to cart'
       redirect_to :back
     else
-      flash[:danger] = 'There was some errors'
+      flash[:danger] = @line_item.errors
       redirect_back(fallback_location: root_url)
     end
   end

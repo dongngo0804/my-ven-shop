@@ -1,5 +1,6 @@
 class Cart < ApplicationRecord
   # before_action :set_card, only: [:show, :edit, :update, :destroy]
+
   has_many :line_items, dependent: :destroy
 
   def add_product(product,quantity)

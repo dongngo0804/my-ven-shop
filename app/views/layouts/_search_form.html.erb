@@ -1,5 +1,10 @@
+<!--<%= form_tag("/search", method: "get") do %>
+  <%= text_field_tag :q, nil, class: 'sb-search-input', placeholder: "Enter your search term ..." %>
+  <%= submit_tag("Search", class: 'sb-search-submit') %>
+   <span class="sb-icon-search"></span>
+<% end %>-->
 
-<%= form_tag("/search", method: "get") do %>
-  <%= text_field_tag :q, nil, class: 'form-control' %>
-  
+<%= form_tag("/search", method: "get", class: 'form-wrapper cf') do %>
+    <%= text_field_tag :q, nil, placeholder: "Enter your search term ..." %>
+    <button type="submit">Search</button>
 <% end %>

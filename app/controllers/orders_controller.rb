@@ -24,7 +24,8 @@ class OrdersController < ApplicationController
       CheckOutMailer.delay.check_out(current_user, @order)
       redirect_to root_path
     else
-      flash[:danger] = 'There was some errors'
+      @line_items = @cart.line_items
+      render 'carts/index'
     end
   end
 

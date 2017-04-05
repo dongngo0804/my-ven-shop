@@ -1,7 +1,9 @@
 <h1> <%= @category.name %> </h1>
 
+<div class="row">
 <% if @products.any? %>
     <% @products.each do |product| %>
        <%= render product %>
     <% end %>
   <% end %>
+</div>

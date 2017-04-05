@@ -1,6 +1,12 @@
 class Product < ApplicationRecord
-  validates(:title, presence: true)
-  validates(:price, length: { maximum: 10 })
+  paginates_per 8
+
+  validates :title, presence: true, length: {maximum: 150}
+  validates :description, presence: true, length: {maximum: 1500}
+  validates :price,  numericality: true, presence: true
+  validates :stock, numericality: true, presence: true
+  validate :picture_size
+
 
   belongs_to :category, optional: true
   belongs_to :user, optional: true
@@ -36,4 +42,11 @@ class Product < ApplicationRecord
       throw :abort
     end
   end
+
+  def picture_size
+    if original_image_url.size > 1.megabytes
+      errors.add(:original_image, "should be less than 1MB")
+    end
+  end
+
 end

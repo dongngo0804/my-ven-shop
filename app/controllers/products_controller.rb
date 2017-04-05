@@ -12,8 +12,8 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @recommended_products = Product.order('sales').limit(8)
-    @newest_products = Product.order('created_at').limit(10)
+    @recommended_products = Product.limit(8).order('sales desc')
+    @newest_products = Product.order('created_at desc').page params[:page]
     @categories = Category.all
   end
 

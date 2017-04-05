@@ -34,6 +34,11 @@ restart
 routes
 secret
 stats
+sunspot:reindex[batch_size,models,silence]
+sunspot:solr:restart
+sunspot:solr:run
+sunspot:solr:start
+sunspot:solr:stop
 test
 test:db
 time:zones[country_or_offset]

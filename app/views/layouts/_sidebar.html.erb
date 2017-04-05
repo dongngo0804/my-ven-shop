@@ -1,10 +1,9 @@
- <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li>Category</li>
+ <div class="col s2">
+ 	   <ul class="collection with-header">
+        <li class="collection-header"> Category </li>
+        <% Category.all.each do |cate| %>         
 
-            <% Category.all.each do |cate| %>
-              <li><%= link_to cate.name, cate %></li>
-            <% end %>
-          </ul>
-         
+              <li class="collection-item"><%=link_to(cate.name, cate) %></li>
+              <% end %>
+    	</ul>
 </div>

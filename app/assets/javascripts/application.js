@@ -16,3 +16,7 @@
 //= require turbolinks
 //= require_tree .
 //= require social-share-button
+//= require materialize-sprockets
+$( document ).ready(function(){
+    $(".button-collapse").sideNav();
+})
