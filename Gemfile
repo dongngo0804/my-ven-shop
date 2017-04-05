@@ -9,7 +9,7 @@ gem 'mysql2'
 gem 'kaminari'
 gem 'materialize-sass'
 gem 'sunspot_rails'
-gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
+
 gem 'social-share-button'
 gem 'meta-tags'
 gem 'cancan'
@@ -78,6 +78,12 @@ group :development do
   gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
+  gem 'capistrano',         require: false
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma',   require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
