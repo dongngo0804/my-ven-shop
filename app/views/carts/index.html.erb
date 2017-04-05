@@ -1,0 +1,32 @@
+<h1> Your Cart </h1>
+
+<table class="table table-bordered">
+	<thead>
+		<td>Product</td>
+		<td>Title</td>
+		<td>Quantity</td>
+		<td>Total Price</td>
+		<td></td>
+	</thead>
+
+	<tbody>
+		<% if @line_items.any? %>
+		  <% @line_items.each do |line| %>
+		  	<tr>
+		    <%= render line %>
+		    <td>
+          	<%= link_to 'Delete', 
+			line, method: :delete, data: {confirm: "You sure?"}  %>
+          	</td>
+          	<tr>
+		    <% end %>
+
+          
+		<% end %>
+	</tbody>
+
+</table>
+
+<div class="checkout">
+   <%= button_to 'Check out', orders_path, method: :post,class: 'btn btn-info' %>
+</div>

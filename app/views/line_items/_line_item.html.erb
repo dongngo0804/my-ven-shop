@@ -1,0 +1,20 @@
+
+
+
+	     <% product = line_item.product %>
+          <td>
+            <%= link_to image_tag(product.small_image_url), product %> 
+          </td>
+          
+          <td>
+            <%= link_to product.title, product %> 
+          </td>
+      
+          <td> 
+            x<%= line_item.quantity %>
+          </td>
+
+          <td>
+            <%= number_to_currency(product.price/100 * line_item.quantity, separator: ",") unless product.price == nil %>
+          </td>
+

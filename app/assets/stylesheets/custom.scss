@@ -33,7 +33,7 @@ h1 {
 	margin-bottom: 30px;
 	text-align: center;
 	font-weight: normal;
-	color: #777;
+	color: #48799a;
 }
 
 h2 {
@@ -101,3 +101,16 @@ p {
  .sidebar ul li{
  	text-align: left;
  }
+
+ .product {
+ 	overflow: auto;
+ }
+
+ #toast-container{
+  top: 70px;
+}
+
+.vertical-center{
+	vertical-align: middle !important;
+
+}

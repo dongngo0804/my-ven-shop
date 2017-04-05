@@ -1,10 +1,37 @@
-<h1>Products from the Amazon API</h1>
-<% if @products.any? %>
-  <% @products.each do |product| %>
-    <div class="product">
-      <%= image_tag(product.image_url) %>
-      <%= link_to product.title, product %>
-      <%= product.description%>
+<div class="row">
+  <h1> Recommended products </h1>
+  <% if @recommended_products.any? %>
+    <% @recommended_products.each do |product| %>
+      <div class="col-md-3">
+        <div class="product">
+          <%= link_to image_tag(product.medium_image_url, class: 'img-responsive'), product %>    
+        </div>
        </div>
+    <% end %>
   <% end %>
-<% end %> 
+</div>
+
+<div class="row">
+  <h1> Newest products </h1>
+  <% if @newest_products.any? %>
+    <% @newest_products.each do |product| %>
+        <div class="product">
+          <div class="col-md-3">
+          	<%= link_to image_tag(product.medium_image_url), product %>
+          </div>
+          <div class="col-md-6">
+          <%= link_to product.title, product %> 
+          </div>
+          <div class="col-md-3">
+          	<%= number_to_currency(product.price/100, separator: ",") unless product.price == nil %>
+          </div>
+          </div>
+    <% end %>
+  <% end %>
+
+</div>
+  
+
+
+
+

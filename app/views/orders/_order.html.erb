@@ -1,0 +1,50 @@
+ 
+	
+ <% order.line_items.each do |line| %>
+   <% product = line.product %>
+   <% rowspan_val = order.line_items.count %>
+   <tr>
+
+   <% if line.product.id == order.line_items.first.product.id %>
+     <td rowspan="<%=rowspan_val%>", class="vertical-center"><%= order.id %></td>
+   <% end %>
+
+   <td width="400">
+     <%= link_to image_tag(product.small_image_url), product %>
+     <%= link_to product.title, product %> 
+   </td>
+
+   <td class="vertical-center">
+   	 <%= line.quantity %>
+   </td>
+
+   <% if line.product.id == order.line_items.first.product.id %>
+     <td rowspan="<%=rowspan_val%>" class="vertical-center">
+     <%= number_to_currency(order.total_price/100) %>	
+     </td>
+
+     <% if can? :update, order %>
+       <td rowspan="<%=rowspan_val%>" class="vertical-center">
+         <%= form_for order do |f| %>
+           <%= f.select :status, options_for_select(Order.statuses.keys, order.status),{}, { :class => 'form-control'} %>
+       </td>  
+       <td rowspan="<%=rowspan_val%>" class="vertical-center">
+          <%= f.submit "Update", class: "btn btn-success" %>
+          <% end %>
+       </td>
+     <% else %>
+        <td rowspan="<%=rowspan_val%>" class="vertical-center"><%= order.status %>
+        </td>
+    <% end %>
+  
+
+     <% if can? :destroy, order %>
+       <td rowspan="<%=rowspan_val%>" class="vertical-center">
+          <%= button_to 'Delete', order_path(order), method: :delete, data: {confirm: "You sure?"}, class: "btn btn-danger"  %>
+       </td>
+     <% end %>
+    <% end %>
+
+   </tr>
+
+<% end %>
