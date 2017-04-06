@@ -2,13 +2,17 @@
 @import "social-share-button";
 
 @import "materialize/components/color";
-$primary-color: color("blue", "lighten-2") !default;
-$secondary-color: color("blue", "base") !default;
+$primary-color: rgba(255,255,255,0.5) !default;
+$secondary-color: color("black", "base") !default;
 @import "materialize";
 
 
+body {
+	
+}
 section {
 	overflow: auto;   //Add scroll bar if content clipped
+	background-color: #fff;
 }
 
 textarea {
@@ -21,6 +25,10 @@ textarea {
 
 .center h1{
 	margin-bottom: 10px;
+}
+
+.container{
+	width: 95% !important;
 }
 
 /* typography */
@@ -164,9 +172,20 @@ select {
     color: #b94a48;
     text-align: left;
 }
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
 
-nav .categories-wrapper {
-    background-color: #5090c4
-;
-    height: 54px;
+#btn-checkout {
+	margin: 10px;
+	background-color: #ffa812;
+}
+
+#btn-update{
+	background-color: #33a1de;
+}
+
+#btn-delete{
+	background-color: #ff3333;
 }

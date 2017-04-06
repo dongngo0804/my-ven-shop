@@ -31,7 +31,7 @@
            </div>
        </td>  
        <td rowspan="<%=rowspan_val%>" class="vertical-center">
-          <%= f.submit "Update", class: "btn btn-success" %>
+          <%= f.submit "Update", class: "btn", id: "btn-update" %>
           <% end %>
        </td>
      <% else %>
@@ -42,7 +42,7 @@
 
      <% if can? :destroy, order %>
        <td rowspan="<%=rowspan_val%>" class="vertical-center">
-          <%= button_to 'Delete', order_path(order), method: :delete, data: {confirm: "You sure?"}, class: "btn btn-danger"  %>
+          <%= button_to 'Delete', order_path(order), method: :delete, data: {confirm: "You sure?"}, class: "btn", id: "btn-delete"  %>
        </td>
      <% end %>
     <% end %>

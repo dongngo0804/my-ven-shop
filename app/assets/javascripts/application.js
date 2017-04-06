@@ -18,5 +18,5 @@
 //= require social-share-button
 //= require materialize-sprockets
 $( document ).ready(function(){
-    $(".button-collapse").sideNav();
-})
+        $(".button-collapse").sideNav();
+      });

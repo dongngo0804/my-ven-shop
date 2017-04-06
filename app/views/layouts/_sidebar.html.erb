@@ -1,9 +1,15 @@
- <div class="col s2">
- 	   <ul class="collection with-header">
-        <li class="collection-header"> Category </li>
+<div class="col m3 s12">
+ 	   
+  <ul class="collapsible" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">turned_in</i>Categories</div>
+      <div class="collapsible-body">  
+      <ul>
         <% Category.all.each do |cate| %>         
-
-              <li class="collection-item"><%=link_to(cate.name, cate) %></li>
-              <% end %>
-    	</ul>
+		  <li class="collection-item"><h6><%=link_to(cate.name, cate) %></h6></li>
+        <% end %>
+        </ul>
+       </div>
+    </li>
+  </ul>  
 </div>

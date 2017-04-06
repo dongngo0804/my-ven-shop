@@ -18,10 +18,10 @@ class Product < ApplicationRecord
   after_save :update_image_urls
   before_destroy :ensure_not_referenced_by_any_line_item
 
-  searchable do
-    text :title, :default_boost => 2
-    text :description
-  end
+#  searchable do
+ #   text :title, :default_boost => 2
+  #  text :description
+ # end
 
   private
 

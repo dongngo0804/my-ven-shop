@@ -6,7 +6,9 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript">
-      
+      $( document ).ready(function(){
+        $(".button-collapse").sideNav();
+      });
     </script>
     <% render 'layouts/shim' %>
     <%= render 'layouts/rails_default' %>
@@ -16,14 +18,14 @@
   <body>
     <%= render 'layouts/header' %>
 
-
+    
     <div class = "container">
       
       <div class="row">
 
         <%= render 'layouts/sidebar' %>
 
-        <div class="col s10 main">
+        <div class="col m9 s12">
 
         <%= render 'layouts/search_form' %>
         

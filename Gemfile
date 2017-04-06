@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+
+gem "passenger"
+
 gem 'mysql2'
 gem 'kaminari'
 gem 'materialize-sass'
@@ -13,7 +16,6 @@ gem 'sunspot_rails'
 gem 'social-share-button'
 gem 'meta-tags'
 gem 'cancan'
-gem 'toastr_rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'sidekiq'
@@ -41,7 +43,6 @@ gem 'rails', '~> 5.0.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -78,12 +79,7 @@ group :development do
   gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
-  gem 'capistrano',         require: false
-  gem 'capistrano-rvm',     require: false
-  gem 'capistrano-rails',   require: false
-  gem 'capistrano-bundler', require: false
-  gem 'capistrano3-puma',   require: false
+  gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in developmen
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
