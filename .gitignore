@@ -25,4 +25,5 @@
 
 /public/uploads
 
-solr/
+solr/config/database.yml
+config/secrets.yml
