@@ -27,3 +27,4 @@
 
 solr/config/database.yml
 config/secrets.yml
+solr/
