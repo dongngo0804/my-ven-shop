@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require toastr_rails
 //= require turbolinks
 //= require_tree .
 //= require social-share-button
