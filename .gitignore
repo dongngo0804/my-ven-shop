@@ -22,9 +22,5 @@
 
 # Ignore application configuration
 /config/application.yml
-
 /public/uploads
-
-solr/config/database.yml
-config/secrets.yml
 solr/

@@ -3,8 +3,13 @@
   <%= submit_tag("Search", class: 'sb-search-submit') %>
    <span class="sb-icon-search"></span>
 <% end %>-->
-
-<%= form_tag("/search", method: "get", class: 'form-wrapper cf') do %>
-    <%= text_field_tag :q, nil, placeholder: "Enter your search term ..." %>
-    <button type="submit">Search</button>
-<% end %>
+<div class="row">
+	<div class="col m12 s12">
+		<%= form_tag("/search", method: "get") do %>
+			<div class= "input-field col s12" >
+    		<%= text_field_tag :q, nil, placeholder: "Enter your search term ..."%>
+    		<label for="search"><i class="material-icons">search</i></label>
+    		</div>
+		<% end %>
+	</div>
+</div>
