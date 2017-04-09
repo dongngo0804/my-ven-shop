@@ -59,6 +59,5 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
-set :stage, :production
 server '139.59.124.166', user: 'deploy', roles: %w{app db web}
 
