@@ -19,33 +19,41 @@
    </td>
 
    <% if line.product.id == order.line_items.first.product.id %>
-     <td rowspan="<%=rowspan_val%>" class="vertical-center">
-     <%= number_to_currency(order.total_price/100) %>	
-     </td>
+       <td rowspan="<%=rowspan_val%>" class="vertical-center">
+       <%= number_to_currency(order.total_price/100) %>	
+       </td>
+    <% end %>
 
-     <% if can? :update, order %>
+     
+
        <td rowspan="<%=rowspan_val%>" class="vertical-center">
-         <%= form_for order do |f| %>
-           <div class="input-field">
-           <%= f.select :status, options_for_select(Order.statuses.keys, order.status) %>
-           </div>
-       </td>  
-       <td rowspan="<%=rowspan_val%>" class="vertical-center">
-          <%= f.submit "Update", class: "btn", id: "btn-update" %>
+         <% if can? :update, order %>
+         
+          <%= form_for order do |f| %>
+             <div class="input-field">
+             <%= f.select :status, options_for_select(Order.statuses.keys, order.status) %>
+             </div>
+           
+             <%= f.submit "Update", class: "btn", id: "btn-update" %>
+
           <% end %>
-       </td>
-     <% else %>
-        <td rowspan="<%=rowspan_val%>" class="vertical-center"><%= order.status %>
-        </td>
-    <% end %>
-  
+          <% end %>
 
-     <% if can? :destroy, order %>
-       <td rowspan="<%=rowspan_val%>" class="vertical-center">
-          <%= button_to 'Delete', order_path(order), method: :delete, data: {confirm: "You sure?"}, class: "btn", id: "btn-delete"  %>
-       </td>
-     <% end %>
-    <% end %>
+          
+          <% if can? :destroy, order %>
+
+             <%= button_to 'Delete', order_path(order), method: :delete, data: {confirm: "You sure?"}, class: "btn", id: "btn-delete"  %>
+          <% end %>
+          
+
+       </td>  
+          
+    
+
+     
+     
+  
+  
 
    </tr>
 

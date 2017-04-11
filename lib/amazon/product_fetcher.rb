@@ -8,6 +8,7 @@ class ProductFetcher
 
   def call
     categories.each do |cate|
+
       params = {
         'SearchIndex' => cate.name,
         'Availability' => 'Available',
@@ -20,21 +21,20 @@ class ProductFetcher
       hashed_products = raw_products.to_h
 
       # binding.pry
-      products = []
-
       hashed_products['ItemSearchResponse']['Items']['Item'].each do |item|
         #  binding.pry
-        product = {}
-        product['title'] = item['ItemAttributes']['Title']
-        # binding.pry
-        product['large_image_url'] = item['LargeImage']['URL']
-        product['medium_image_url'] = item['MediumImage']['URL']
-        product['small_image_url'] = item['SmallImage']['URL']
-        product['description'] = item['ItemAttributes']['Feature'].is_a?(Array) ? item['ItemAttributes']['Feature'].join("\n") : item['ItemAttributes']['Feature']
-        product['sales'] = 0
-        product['price'] = item['ItemAttributes']['ListPrice']['Amount'] unless item['ItemAttributes']['ListPrice'].nil?
-        product['stock'] = 100
-
+        unless item.nil?
+          product = {}
+          product['title'] = item['ItemAttributes']['Title'] unless item['ItemAttributes']['Title'].nil?
+          # binding.pry
+          product['large_image_url'] = item['LargeImage']['URL'] unless item['LargeImage'].nil?
+          product['medium_image_url'] = item['MediumImage']['URL'] unless item['MediumImage'].nil?
+          product['small_image_url'] = item['SmallImage']['URL'] unless item['SmallImage'].nil?
+          product['description'] = item['ItemAttributes']['Feature'].is_a?(Array) ? item['ItemAttributes']['Feature'].join("\n") : item['ItemAttributes']['Feature']
+          product['sales'] = 0
+          product['price'] = item['ItemAttributes']['ListPrice']['Amount'] unless item['ItemAttributes']['ListPrice'].nil?
+          product['stock'] = 100
+        end
         product = cate.products.build(product)
         if product.valid?
           product.save
