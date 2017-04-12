@@ -7,10 +7,10 @@
     <div class="col m6 s12">
     
       <ul class="collection">
-        <li class="collection-item"> Item ID: <%= @product.id %> </li> 	
-        <li class="collection-item"> Item Description: <%= @product.description%></li>
-        <li class="collection-item"> Item Price: <%= number_to_currency(@product.price/100) unless @product.price == nil%> </li>
-        <li class="collection-item"> In Stock: <%= @product.stock%> </li>
+        <li class="collection-item"> ID: <%= @product.id %> </li> 	
+        <li class="collection-item"> Description: <%= @product.description%></li>
+        <li class="collection-item"> Price: <%= number_to_currency(@product.price) unless @product.price == nil%> </li>
+        <li class="collection-item"> Stock: <%= @product.stock%> </li>
         <li class= "collection-item">
 
        
@@ -21,7 +21,7 @@
           <%= f.hidden_field :product_id, value: @product.id %>
 
           <div class="input-field col m3 s12">
-            <%= f.submit "Add to Cart", class: "btn btn-info" %>
+            <%= f.submit "Add to Cart", class: "btn" %>
           </div>
         <% end %>
         </li>

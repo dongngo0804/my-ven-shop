@@ -8,7 +8,6 @@ class Product < ApplicationRecord
 
   validates :title, presence: true, length: {maximum: 150}
   validates :description, presence: true, length: {maximum: 1500}
-  validates :price,  numericality: true, presence: true
   validates :stock, numericality: true, presence: true
   validate :picture_size
 
@@ -50,5 +49,6 @@ class Product < ApplicationRecord
       errors.add(:original_image, "should be less than 1MB")
     end
   end
+
 
 end

@@ -20,7 +20,7 @@
 
    <% if line.product.id == order.line_items.first.product.id %>
        <td rowspan="<%=rowspan_val%>" class="vertical-center">
-       <%= number_to_currency(order.total_price/100) %>	
+       <%= number_to_currency(order.total_price) %>	
        </td>
     <% end %>
 

@@ -1,2 +1,10 @@
+Thank you for buying our products 
+Your order information:  
+    
+<% @order.line_items.each do |line_item| %>
+  <%= render line_item %>
+<% end %>
 
-Sample mail sent using smtp.
+Total price: <%= number_to_currency(@order.total_price) %>
+
+ 

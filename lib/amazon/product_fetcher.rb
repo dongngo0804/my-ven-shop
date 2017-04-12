@@ -32,7 +32,7 @@ class ProductFetcher
           product['small_image_url'] = item['SmallImage']['URL'] unless item['SmallImage'].nil?
           product['description'] = item['ItemAttributes']['Feature'].is_a?(Array) ? item['ItemAttributes']['Feature'].join("\n") : item['ItemAttributes']['Feature']
           product['sales'] = 0
-          product['price'] = item['ItemAttributes']['ListPrice']['Amount'] unless item['ItemAttributes']['ListPrice'].nil?
+          product['price'] = (item['ItemAttributes']['ListPrice']['Amount'].to_f/100.0) unless item['ItemAttributes']['ListPrice'].nil?
           product['stock'] = 100
         end
         product = cate.products.build(product)

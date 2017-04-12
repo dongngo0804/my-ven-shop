@@ -48,11 +48,11 @@ ActiveRecord::Schema.define(version: 20170330060346) do
     t.string   "large_image_url"
     t.string   "medium_image_url"
     t.string   "small_image_url"
-    t.decimal  "price",                            precision: 10
-    t.datetime "created_at",                                                  null: false
-    t.datetime "updated_at",                                                  null: false
+    t.decimal  "price",                            precision: 15, scale: 2
+    t.datetime "created_at",                                                            null: false
+    t.datetime "updated_at",                                                            null: false
     t.integer  "category_id"
-    t.integer  "sales",                                           default: 0
+    t.integer  "sales",                                                     default: 0
     t.integer  "user_id"
     t.integer  "stock"
   end

@@ -24,11 +24,11 @@ class ProductsController < ApplicationController
 
   def new
     @product = current_user.products.build
-
   end
 
   def create
     @product = current_user.products.build(product_params)
+    #binding.pry
     if @product.save
       flash[:info] = 'Product Saved!'
       redirect_to root_url

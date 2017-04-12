@@ -24,3 +24,4 @@
 /config/application.yml
 /public/uploads
 solr/
+config/sunspot.yml

@@ -7,7 +7,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.string :large_image_url
       t.string :medium_image_url
       t.string :small_image_url
-      t.decimal :price
+      t.decimal :price, :precision => 15, :scale => 2 
 
       t.timestamps
     end

@@ -15,6 +15,6 @@
           </td>
 
           <td>
-            <%= number_to_currency(product.price/100 * line_item.quantity, separator: ",") unless product.price == nil %>
+            <%= number_to_currency(product.price * line_item.quantity, separator: ",") unless product.price == nil %>
           </td>
 

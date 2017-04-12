@@ -24,12 +24,12 @@
 
          <div class="input-field col s3">
           <%= f.label :price %>
-            <%= f.text_field :price, class: 'form-control', type: 'number' %>
+            <%= f.number_field :price, class: 'form-control', step: '0.01' %>
           </div>
 
         <div class="input-field col s3">
           <%= f.label :stock %>
-          <%= f.text_field :stock, class: 'form-control' %>
+          <%= f.number_field :stock, class: 'form-control', step: '1' %>
         </div>
 
         <div class="row">
