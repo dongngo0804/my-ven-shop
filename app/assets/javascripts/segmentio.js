@@ -63,4 +63,7 @@
   console.log('page on !!!');
   analytics.page();
   analytics.trackForm($('#new_user'), 'Signed Up');
+  analytics.trackForm($('#new_line_item'), 'Add item to cart');
+  analytics.trackLink(document.getElementById('delete_cart_item'),'Remove item from cart');
+  analytics.trackClick($('#btn-checkout'),'Checkout');
   })

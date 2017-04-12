@@ -16,7 +16,7 @@
 		    <%= render line %>
 		    <td>
           	<%= link_to 'Delete', 
-			line, method: :delete, data: {confirm: "You sure?"}  %>
+			line, method: :delete, data: {confirm: "You sure?"}, id: 'delete_cart_item'  %>
           	</td>
           	<tr>
 		    <% end %>
