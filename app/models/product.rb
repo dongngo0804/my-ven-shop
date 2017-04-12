@@ -1,11 +1,10 @@
 class Product < ApplicationRecord
   
-  # searchable do
-  #   text :title
-  # end
+  searchable do
+    text :title
+  end
 
-
-  paginates_per 8
+  paginates_per 9
 
   validates :title, presence: true, length: {maximum: 150}
   validates :description, presence: true, length: {maximum: 1500}
