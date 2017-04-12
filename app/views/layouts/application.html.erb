@@ -24,16 +24,17 @@
     <div class = "container">
       
       <div class="row">
-
-        <%= render 'layouts/sidebar' %>
-
-        <div class="col m9 s12">
+          <%= render 'layouts/sidebar' %>
+     
+      <div class="col s12 m9">
 
         <%= render 'layouts/search_form' %>
         
          <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+      
       <% end %>
+        
         <%= yield %>
         </div>
 

@@ -59,6 +59,8 @@
   window.analytics.page();
 
   // accommodate Turbolinks and track page views
-$(document).on('ready page:change', function() {
+  $(document).on('turbolinks:load', function() {
+  console.log('page on !!!');
   analytics.page();
-})
+  analytics.trackForm($('#new_user'), 'Signed Up');
+  })
