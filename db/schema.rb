@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 20170330060346) do
   end
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "status",                     default: 0
-    t.decimal  "total_price", precision: 10, default: 0
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.integer  "status",                               default: 0
+    t.decimal  "total_price", precision: 15, scale: 2, default: "0.0"
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
     t.integer  "user_id"
   end
 

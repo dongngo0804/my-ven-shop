@@ -24,7 +24,7 @@
        </td>
     <% end %>
 
-     
+     <% if current_user.admin? %>
 
        <td rowspan="<%=rowspan_val%>" class="vertical-center">
          <% if can? :update, order %>
@@ -37,24 +37,24 @@
              <%= f.submit "Update", class: "btn", id: "btn-update" %>
 
           <% end %>
-          <% end %>
+
+          <% end %> <!-- end if -->
 
           
           <% if can? :destroy, order %>
 
              <%= button_to 'Delete', order_path(order), method: :delete, data: {confirm: "You sure?"}, class: "btn", id: "btn-delete"  %>
           <% end %>
-          
 
        </td>  
-          
-    
+      
 
-     
-     
-  
-  
+      <% else %>
+         <td rowspan="<%=rowspan_val%>" class="vertical-center">
+            <%= order.status %>
+         </td>
 
+      <% end %>
    </tr>
 
 <% end %>
