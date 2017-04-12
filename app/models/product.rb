@@ -1,8 +1,8 @@
 class Product < ApplicationRecord
   
-  # searchable do
-  #   text :title
-  # end
+   searchable do
+     text :title
+   end
 
   paginates_per 9
 
