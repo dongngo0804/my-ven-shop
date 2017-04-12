@@ -9,6 +9,7 @@ class Product < ApplicationRecord
   validates :title, presence: true, length: {maximum: 150}
   validates :description, presence: true, length: {maximum: 1500}
   validates :stock, numericality: true, presence: true
+  validates :price, numericality: true, presence: true
   validate :picture_size
 
 
